@@ -6,7 +6,7 @@
 
 
 @PlcConfigApplication(
-	definition=@PlcConfigApplicationDefinition(name="cee-revista",acronym="cee-revista",version=1,release=0),
+	definition=@PlcConfigApplicationDefinition(name="Controle dos Assinantes da Revista",acronym="Revista",version=1,release=0),
 	classesDiscreteDomain={},
 	classesLookup={}
 )
