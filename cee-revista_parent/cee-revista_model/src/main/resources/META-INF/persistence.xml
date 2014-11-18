@@ -15,7 +15,7 @@
 	
 	<persistence-unit name="default" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<non-jta-data-source>java:/comp/env/jdbc/cee-revista</non-jta-data-source>
+		<non-jta-data-source>java:/comp/env/jdbc/cee-apps</non-jta-data-source>
 		
 		<properties>
 			<property name="hibernate.archive.autodetection" value="class, hbm"/>
