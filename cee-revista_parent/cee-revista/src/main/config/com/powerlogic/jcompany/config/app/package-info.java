@@ -7,7 +7,9 @@
 
 @PlcConfigApplication(
 	definition=@PlcConfigApplicationDefinition(name="Controle dos Assinantes da Revista",acronym="Revista",version=1,release=0),
-	classesDiscreteDomain={},
+	classesDiscreteDomain={
+		com.cee.revista.entity.StatusAssinatura.class, 
+		com.cee.revista.entity.TipoOcorrencia.class},
 	classesLookup={}
 )
 

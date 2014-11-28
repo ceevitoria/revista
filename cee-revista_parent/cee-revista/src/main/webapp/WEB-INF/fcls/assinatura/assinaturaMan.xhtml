@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
+	xmlns:plcf="http://www.powerlogic.com.br/plcf" 
+	xmlns:tr="http://myfaces.apache.org/trinidad" 
+	xmlns:trh="http://myfaces.apache.org/trinidad/html">  
+	<ui:composition> 
+		<plcf:tabela tituloChave="assinaturaman.titulo"> 
+			<plcf:linha> 
+				<plcf:celula> 
+					<plcf:titulo value="#{msg['label.pessoa']}"/>  
+					<plcf:vinculado id="pessoa" value="#{assinatura.pessoa}" 
+					propSelPop="pessoa" idExibe="N" idSomenteLeitura="N" larg="1000"
+					autoRecuperacaoClasse="com.cee.revista.entity.PessoaEntity" tamanho="50"
+					autoComplete="true" evento="y" lookupTamanho="50"
+					riaUsa="autocomplete(url='/cee-revista/soa/service/autocomplete.pessoa?q=nome', tamanhoMinimo='2', tamanhoLista='5')"
+					actionSel="pessoasel" modal="S" ajudaChave="ajuda.pessoa"
+					onkeydown="selecionaPorTecla(event,this);"/> 
+				</plcf:celula> 
+			</plcf:linha>  
+			<plcf:linha> 
+				<plcf:celula> 
+					<plcf:titulo value="#{msg['label.data']}"/>  
+					<plcf:data id="data" value="#{assinatura.data}" ajudaChave="ajuda.data"/> 
+				</plcf:celula> 
+			</plcf:linha>  
+			<plcf:linha> 
+				<plcf:celula> 
+					<plcf:titulo value="#{msg['label.valor']}"/>  
+					<plcf:numerico id="valor" value="#{assinatura.valor}" ajudaChave="ajuda.valor"/> 
+				</plcf:celula> 
+			</plcf:linha>  
+			<plcf:linha> 
+				<plcf:celula> 
+					<plcf:titulo value="#{msg['label.status']}"/>  
+					<plcf:comboEstatico id="status" value="#{assinatura.status}" dominio="StatusAssinatura" exibeBranco="S" ajudaChave="ajuda.status"/> 
+				</plcf:celula> 
+			</plcf:linha>  
+			<plcf:linha> 
+				<plcf:celula> 
+					<plcf:titulo value="#{msg['label.vigencia']}"/>  
+					<plcf:data id="vigencia" value="#{assinatura.vigencia}" ajudaChave="ajuda.vigencia"/> 
+				</plcf:celula> 
+			</plcf:linha> 
+			<plcf:linha> 
+				<plcf:celula> 
+					<plcf:titulo  
+						value="#{msg['ocorrenciaMB.titulo.detalhe']}"
+	                    exibeSe="#{not empty assinatura.id}"/>
+	                <plcf:linkInteligente
+	                    link="#{request.contextPath}/f/n/ocorrenciamad?id=#{assinatura.id}"
+	                    tituloChave="ocorrenciaMB.titulo.detalhe"
+	                    ajudaChave="ocorrenciaMB.titulo.detalhe"
+	                    exibeSe="#{not empty assinatura.id}"/>
+				</plcf:celula> 
+			</plcf:linha> 
+		</plcf:tabela> 
+	</ui:composition> 
+</html>

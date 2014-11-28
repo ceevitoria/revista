@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
+	xmlns:plcf="http://www.powerlogic.com.br/plcf" 
+	xmlns:tr="http://myfaces.apache.org/trinidad" 
+	xmlns:trh="http://myfaces.apache.org/trinidad/html">  
+	<ui:composition template="/fcls/template/PlcGeralTemplate.xhtml"> 
+		<ui:define name="plc-corpo-formulario"> 
+			<div id="plc-form-basico"> 
+				<div id="#{plcAliasPrefixoAction}Arg" class="plc-form-basico-topo"> 
+					<plcf:tabela tituloChave="assinaturaarg.titulo"> 
+						<plcf:linha> 
+							<plcf:celula> 
+								<plcf:titulo value="#{msg['label.pessoa']}"/>  
+								<plcf:vinculado id="pessoa" value="#{assinatura.pessoa}" 
+									propSelPop="pessoa" idExibe="N" idSomenteLeitura="N" larg="1000"
+									autoRecuperacaoClasse="com.cee.revista.entity.PessoaEntity" tamanho="50"
+									autoComplete="true" evento="y" lookupTamanho="50"
+									riaUsa="autocomplete(url='/cee-revista/soa/service/autocomplete.pessoa?q=nome', tamanhoMinimo='2', tamanhoLista='5')"
+									actionSel="pessoasel" modal="S" ajudaChave="ajuda.pessoa"
+									onkeydown="selecionaPorTecla(event,this);"/> 
+							</plcf:celula>  
+							<plcf:celula> 
+								<plcf:titulo value="#{msg['label.data']}"/>  
+								<plcf:data id="data" value="#{assinatura.data}" ajudaChave="ajuda.data"/> 
+							</plcf:celula>  
+							<plcf:celula> 
+								<plcf:titulo value="#{msg['label.valor']}"/>  
+								<plcf:numerico id="valor" value="#{assinatura.valor}" ajudaChave="ajuda.valor"/> 
+							</plcf:celula>  
+							<plcf:celula> 
+								<plcf:titulo value="#{msg['label.status']}"/>  
+								<plcf:comboEstatico id="status" value="#{assinatura.status}" dominio="StatusAssinatura" exibeBranco="S" ajudaChave="ajuda.status"/> 
+							</plcf:celula> 
+						</plcf:linha> 
+					</plcf:tabela> 
+				</div>
+				<div id="#{plcAliasPrefixoAction}Sel" class="plc-form-basico-sel"> 
+					<script type="text/javascript">//<![CDATA[
+	jQuery(function(){plc.criaSelecaoJqGrid('plc-grid','plc-grid-navegador',{
+		evento:'${param.evento}'
+				,modoJanelaPlc:'${param.modoJanelaPlc}'
+				,rowNum:'30'
+				,nomeLogica:'assinatura'
+				,propAgregada:'assinatura'
+				,jqGrid:{caption:
+				'#{msg['assinatura.titulo']}',
+						colNames:
+					['#{msg['label.pessoa']}',
+					'#{msg['label.data']}',
+					'#{msg['label.valor']}',
+					'#{msg['label.status']}'],
+				colModel:[
+					{name:'pessoa',index:'pessoa'},
+					{name:'data',index:'data'},
+					{name:'valor',index:'valor'},
+					{name:'status',index:'status'}]},
+			urlEdicao:'#{request.contextPath}/f/n/assinaturaman'});});//]]> </script>  
+					<table id="plc-grid" width="100%" class="scroll" cellpadding="0" cellspacing="0"/>  
+					<div id="plc-grid-navegador" class="scroll" style="text-align:center;"/> 
+				</div> 
+			</div> 
+		</ui:define> 
+	</ui:composition> 
+</html>
