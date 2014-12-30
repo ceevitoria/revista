@@ -6,11 +6,16 @@
 
 
 @PlcConfigApplication(
-	definition=@PlcConfigApplicationDefinition(name="Controle dos Assinantes da Revista",acronym="Revista",version=1,release=0),
+	definition=@PlcConfigApplicationDefinition(name="Assinantes da Revista",acronym="Revista",version=1,release=0),
 	classesDiscreteDomain={
+		com.powerlogic.jcompany.domain.type.PlcYesNo.class,
+		com.cee.revista.entity.Sexo.class,
 		com.cee.revista.entity.StatusAssinatura.class, 
-		com.cee.revista.entity.TipoOcorrencia.class},
-	classesLookup={}
+		com.cee.revista.entity.TipoOcorrencia.class,
+		com.cee.revista.entity.config.TipoMensagemSucessoConfig.class},
+	classesLookup={
+		com.cee.revista.entity.UfEntity.class,
+		com.cee.revista.entity.CidadeEntity.class}
 )
 
 

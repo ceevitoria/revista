@@ -19,6 +19,7 @@ import javax.persistence.Entity;
 @Access(AccessType.FIELD)
 @NamedQueries({
 	@NamedQuery(name="AssinaturaEntity.queryMan", query="from AssinaturaEntity where sitHistoricoPlc='A'"),
+	@NamedQuery(name="AssinaturaEntity.obterAssinaturaPorIdPessoa", query = "from AssinaturaEntity where pessoa.id = :idPessoa"),
 	@NamedQuery(name="AssinaturaEntity.querySel", query="select obj.id as id, obj1.id as pessoa_id , obj1.nome as pessoa_nome, obj.data as data, obj.valor as valor, obj.status as status from AssinaturaEntity obj left outer join obj.pessoa as obj1 where obj.sitHistoricoPlc='A' order by obj.valor asc"), @NamedQuery(name = "AssinaturaEntity.querySelLookup", query = "select id as id, pessoa as pessoa from AssinaturaEntity where id = ? order by id asc") })
 public class AssinaturaEntity extends Assinatura {
 

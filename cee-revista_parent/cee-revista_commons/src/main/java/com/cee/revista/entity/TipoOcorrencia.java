@@ -5,12 +5,11 @@ package com.cee.revista.entity;
  */
 public enum TipoOcorrencia {
     
-	EA("{tipoOcorrencia.EA}"),
-	NR("{tipoOcorrencia.NR}"),
-	RA("{tipoOcorrencia.RA}"),
-	CA("{tipoOcorrencia.CA}"),
-	OU("{tipoOcorrencia.OU}");
-
+	EA("{tipoOcorrencia.EA}"),  // Entrega Atrasada
+	NR("{tipoOcorrencia.NR}"),  // Não Recebimento
+	RA("{tipoOcorrencia.RA}"),  // Renovação Assinatura
+	CA("{tipoOcorrencia.CA}"),  // Cancelamento Assinatura
+	OU("{tipoOcorrencia.OU}");  // Outro
 	
     /**
      * @return Retorna o codigo.

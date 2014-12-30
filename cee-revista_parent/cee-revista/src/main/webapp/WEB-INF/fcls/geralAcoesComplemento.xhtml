@@ -10,8 +10,39 @@
 	<body>
 		<ui:composition>
 			<div id='plc-corpo-acao-personalisado' class='plc-corpo-acao-generico'>
-				<!--PONTO_INSERCAO-->
+
+			<ui:insert name="assinatura_acao_abrir">	 
+				<plcf:botaoAcao id="botaoAcaoAbrirCustomizado" urlIcone="ico iAbrir" acao="" 
+					limpaForm="false"   
+					label="jcompany.evt.abrir" botaoArrayID="ABRIR" 
+					immediate="false" validaForm="true" 
+					rendered="#{requestScope.exibeBtnAbrirCustomizado=='S'}" 
+					partialSubmit="#{!partialSubmit}" blocking="true" 
+					onclick="submeteUrl('#{request.contextPath}/f/n/#{requestScope.urlBtnAbrirCustomizado}');return false;">
+				</plcf:botaoAcao>
+			</ui:insert>
 			
+			<ui:insert name="associado_acao_registrarRecebimento">	 	           
+				<plcf:botaoAcao id="botaoAcaoRegistrarRecebimento" urlIcone="ico iGravar" acao="registrarRecebimento" 
+					partialSubmit="#{!partialSubmit}" alertaExcluirDetalhe="jcompany.alerta.excluir.detalhe" 
+					label="cee.evt.registrar" limpaForm="true"  
+					botaoArrayID="REGISTRAR_RECEBIMENTO" rendered="#{requestScope.exibeBtnRegistrarRecebimento=='S'}" 
+					onclick="beforeSubmit();">
+					<f:ajax event="action" execute="@form" render="@form" imediate="true" onerror="plc.manipulaErroAjax"/>
+					<f:param name="skipValidation" value="true"/>
+				</plcf:botaoAcao>	
+			</ui:insert>
+
+			<ui:insert name="associado_acao_limparRecebimentoAnterior">	 	           
+				<plcf:botaoAcao id="botaoAcaoLimparRecebimentoAnterior" urlIcone="ico iLimpar" acao="limparRecebimentoAnterior" 
+					partialSubmit="#{!partialSubmit}" 
+					label="cee.evt.limpar" limpaForm="true" validaForm="false" immediate="false" blocking="true"   
+					botaoArrayID="LIMPAR" rendered="#{requestScope.exibeBtnLimpar=='S'}" 
+					onclick="beforeSubmit();">
+					<f:ajax event="action" execute="@form" render="@form" imediate="true" onerror="plc.manipulaErroAjax"/>
+					<f:param name="skipValidation" value="true"/>
+				</plcf:botaoAcao>	
+			</ui:insert>
 			
 			</div>			 
 		</ui:composition>

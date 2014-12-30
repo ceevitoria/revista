@@ -14,7 +14,7 @@ public interface AppConstants extends PlcConstants {
     	String EXIBE_BT_ABRIR_CUSTOMIZADO = "exibeBtnAbrirCustomizado";
     	String EXIBE_BT_LIMPAR = "exibeBtnLimpar";
     	String EXIBE_BT_NOVO = "exibeBtnNovo";
-    	String EXIBE_BT_REGISTRAR_CONTRIBUICAO = "exibeBtnRegistrarContribuicao";
+    	String EXIBE_BT_REGISTRAR_RECEBIMENTO = "exibeBtnRegistrarRecebimento";
     }
 
     String URL_BT_ABRIR_CUSTOMIZADO = "urlBtnAbrirCustomizado";
