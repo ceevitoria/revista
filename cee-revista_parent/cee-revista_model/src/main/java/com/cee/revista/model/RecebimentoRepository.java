@@ -173,7 +173,7 @@ public class RecebimentoRepository {
 				Ocorrencia ocorrencia = new OcorrenciaEntity();
 				
 				ocorrencia.setAssinatura(assinatura);
-				ocorrencia.setTipo(TipoOcorrencia.CA);
+				ocorrencia.setTipo(TipoOcorrencia.RA);
 				ocorrencia.setData(rc.getData());
 				ocorrencia.setValor(rc.getValor());
 				ocorrencia.setDescricao(rc.getDescricao());
