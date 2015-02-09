@@ -35,35 +35,28 @@ public abstract class Pessoa extends AppBaseEntity {
 	@Size(max = 200)
 	private String nome;
 
-	@NotNull
 	@Size(max = 11)
 	@PlcValCpf
 	private String cpf;
 
-	@NotNull
 	@Enumerated(EnumType.STRING)
 	private Sexo sexo;
 	
-	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	private Date dataNascimento;
 
-	@NotNull
 	@Size(max = 120)
 	@Email
 	private String email;
 
-	@NotNull
 	@Size(max = 15)
 	private String telefone;
 
-	@NotNull
 	@Size(max = 16)
 	private String celular;
 
 	@Embedded
-	@NotNull
 	@Valid
 	private Endereco endereco;
 
