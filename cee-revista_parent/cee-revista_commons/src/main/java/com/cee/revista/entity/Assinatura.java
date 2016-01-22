@@ -26,7 +26,6 @@ import javax.persistence.CascadeType;
 
 @MappedSuperclass
 public abstract class Assinatura extends AppBaseEntity {
-
 	
 	@OneToMany (targetEntity = com.cee.revista.entity.OcorrenciaEntity.class, fetch = FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="assinatura")
 	@ForeignKey(name="FK_OCORRENCIA_ASSINATURA")
