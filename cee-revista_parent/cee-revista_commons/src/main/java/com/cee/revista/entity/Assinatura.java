@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.persistence.Enumerated;
+import javax.persistence.OrderBy;
 import javax.persistence.TemporalType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
@@ -26,11 +27,12 @@ import javax.persistence.CascadeType;
 
 @MappedSuperclass
 public abstract class Assinatura extends AppBaseEntity {
-	
+	private static final long serialVersionUID = -6294603848506175347L;
+
 	@OneToMany (targetEntity = com.cee.revista.entity.OcorrenciaEntity.class, fetch = FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="assinatura")
 	@ForeignKey(name="FK_OCORRENCIA_ASSINATURA")
-	@PlcValDuplicity(property="descricao")
 	@PlcValMultiplicity(referenceProperty="descricao",  message="{jcompany.aplicacao.mestredetalhe.multiplicidade.OcorrenciaEntity}")
+	@OrderBy(value = "data")
 	@Valid
 	private List<Ocorrencia> ocorrencia;
 
