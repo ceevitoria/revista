@@ -23,13 +23,9 @@
 		  defaultAutoCommit="false"
 		  fairQueue="true"
 		  testOnBorrow="true"
+		  autoReconnect="true"
 		  validationQuery="select 1" />
 
-<!-- 
- <Resource name="jdbc/cee-revista" type="javax.sql.DataSource" driverClassName="org.apache.derby.jdbc.ClientDriver" 
-   url="jdbc:derby://localhost:1527/bancolocal;create=true" username="APP" password="APP"
-   maxActive="50" maxWait="-1" maxIdle="10" removeAbandoned="true" logAbandoned="true" />
- -->
 
  <!-- JCDI / Weld (RI)  -->      
  <Resource name="BeanManager"

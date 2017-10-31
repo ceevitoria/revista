@@ -23,6 +23,7 @@
 		  defaultAutoCommit="false"
 		  fairQueue="true"
 		  testOnBorrow="true"
+		  autoReconnect="true"
 		  validationQuery="select 1" />
 
 
